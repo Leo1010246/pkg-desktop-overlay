@@ -1,12 +1,11 @@
 import sys
 from PySide6.QtWidgets import QApplication, QPushButton
 
-from windows import OverlayWindow
-from widgets import DraggableWidget, DraggableButton
+from .windows_pyside6 import OverlayWindow
+from .widgets_pyside6 import DraggableWidget, DraggableButton
 
 
-if __name__ == "__main__":
-
+def make_pyside6_ui():
     app = QApplication(sys.argv)
 
     # 오버레이 윈도우 생성

@@ -72,6 +72,6 @@ USER $USERNAME
 COPY --chown=$USERNAME:$USER_GID . .
 
 RUN pip-compile -o requirements.txt pyproject.toml
-RUN pip install -r requirements.txt
+RUN python3 -m pip install -r requirements.txt
 
 ENTRYPOINT ["python", "."]

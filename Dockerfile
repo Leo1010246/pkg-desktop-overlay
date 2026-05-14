@@ -30,6 +30,17 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libglx-mesa0 \
     libgl1-mesa-dri \
     libglu1-mesa \
+    # --------------- 여기는 Qt 계열에 필요한 라이브러리들
+    libxcb-cursor0 \
+    libxcb-xinerama0 \
+    libxcb-icccm4 \
+    libxcb-image0 \
+    libxcb-keysyms1 \
+    libxcb-render-util0 \
+    libxcb-shape0 \
+    libx11-xcb1 \
+    libgl1-mesa-glx \
+    # ----------------
     pulseaudio \
     libasound2t64 \
     libasound2-plugins \

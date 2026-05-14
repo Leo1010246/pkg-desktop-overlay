@@ -28,10 +28,10 @@ RUN if getent group $USER_GID; then \
 RUN apt-get update && apt-get install -y --no-install-recommends \
     libgl1 \
     libglx-mesa0 \
-    mesa-utils \
+    libmesa-dri \
     libglu1-mesa \
     pulseaudio \
-    libasound2 \
+    libasound2t64 \
     libasound2-plugins \
     alsa-utils \
     python3 \

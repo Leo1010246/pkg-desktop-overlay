@@ -87,4 +87,4 @@ RUN python3 -m pip install --user --break-system-packages -r requirements.txt
 
 RUN pip install -e .
 
-ENTRYPOINT ["python", "-m", $(grep '^name[[:space:]]*=' pyproject.toml | cut -d '"' -f2)]
+ENTRYPOINT ["python", "-m", $(sed -n '/\[project\]/,/name/s/^name *= *"\(.*\)"/\1/p' pyproject.toml | head -n 1)]

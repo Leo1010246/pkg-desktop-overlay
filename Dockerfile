@@ -26,11 +26,12 @@ RUN if getent group $USER_GID; then \
     && chmod 0440 /etc/sudoers.d/$USERNAME
     
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    libgl1-mesa-dri \
-    libgl1-mesa-glx \
+    libgl1 \
+    libglx-mesa0 \
+    libmesa-dri \
     libglu1-mesa \
     pulseaudio \
-    libasound2t64 \
+    libasound2 \
     libasound2-plugins \
     alsa-utils \
     python3 \

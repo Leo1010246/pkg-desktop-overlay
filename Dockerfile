@@ -39,6 +39,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libxcb-render-util0 \
     libxcb-shape0 \
     libx11-xcb1 \
+    libfontconfig1 \
+    libxkbcommon-x11-0 \
     # ----------------
     pulseaudio \
     libasound2t64 \

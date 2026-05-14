@@ -12,8 +12,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     sudo \
     && rm -rf /var/lib/apt/lists/*
 
-RUN groupadd --gid $USER_GID $USERNAME \
-    && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME \
+RUN if getent group $USER_GID; then \
+        groupmod -n $USERNAME $(getent group $USER_GID | cut -d: -f1);\
+    else \
+        groupadd --gid $USER_GID $USERNAME; \
+    fi \
+    && if getent passwd $USER_UID; then \
+        usermod -l $USERNAME -g $USER_GID -m -d /home/$USERNAME $(getent passwd $USER_UID | cut -d: -f1); \
+    else \
+        useradd --uid $USER_UID --gid $USER_GID -m $USERNAME; \
+    fi \
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
     

@@ -66,7 +66,7 @@ USER $USERNAME
 
 COPY --chown=$USERNAME:$USER_GID pyproject.toml README.md ./
 
-RUN pip-compile --extra dev -o requirements.txt pyproject.toml
+RUN python3 -m piptools compile --extra dev --strip-extras -o requirements.txt pyproject.toml
 RUN python3 -m pip install -r requirements.txt
 
 RUN find . -maxdepth 1 ! -name '.' ! -name '..' -delete

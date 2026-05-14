@@ -44,6 +44,8 @@ RUN python3 -m pip install --no-cache-dir pip-tools --break-system-packages
 
 WORKDIR /app
 
+RUN chown $USERNAME:$USER_GID /app
+
 # dev stage
 FROM base AS dev
 

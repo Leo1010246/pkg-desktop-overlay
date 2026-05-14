@@ -39,7 +39,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libxcb-render-util0 \
     libxcb-shape0 \
     libx11-xcb1 \
-    libgl1-mesa-glx \
     # ----------------
     pulseaudio \
     libasound2t64 \

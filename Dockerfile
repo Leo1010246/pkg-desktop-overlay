@@ -46,6 +46,8 @@ WORKDIR /app
 
 RUN chown $USERNAME:$USER_GID /app
 
+ENV PYTHONPATH="/app/.."
+
 # dev stage
 FROM base AS dev
 
@@ -85,4 +87,4 @@ COPY --chown=$USERNAME:$USER_GID . .
 RUN python3 -m piptools compile --extra dev --strip-extras -o requirements.txt pyproject.toml
 RUN python3 -m pip install --user --break-system-packages -r requirements.txt
 
-ENTRYPOINT ["python", "."]
+ENTRYPOINT ["python", "-m", "app"]
